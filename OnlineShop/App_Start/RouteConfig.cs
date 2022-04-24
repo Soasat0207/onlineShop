@@ -17,6 +17,13 @@ namespace OnlineShop
       new { botdetect = @"(.*)BotDetectCaptcha\.ashx" }); //ngăn chặn người dùng truy cập vào botdectcaptcha
 
             routes.MapRoute(
+           name: "Product Index",
+           url: "san-pham",
+           defaults: new { controller = "Product", action = "Index" },
+           namespaces: new[] { "OnlineShop.Controllers" }
+       );
+
+            routes.MapRoute(
                name: "Product Category",
                url: "san-pham/{metatitle}-{cateId}",
                defaults: new { controller = "Product", action = "Category", id = UrlParameter.Optional },

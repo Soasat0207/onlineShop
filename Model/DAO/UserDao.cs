@@ -12,11 +12,11 @@ namespace Model.DAO
     public class UserDao //project khác có thể truy cập
     {
         OnlineShopDbContext db = null; //khởi tạo biến
-        
+
         public UserDao()
         {
             db = new OnlineShopDbContext(); //khởi tạo biến dao
-
+        }
         //insert
         public long Insert (User entity) //phương thức insert trả về kiểu chính là cái ID cỉa nó
         {
