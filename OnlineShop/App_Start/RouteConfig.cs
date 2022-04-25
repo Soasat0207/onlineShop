@@ -11,17 +11,17 @@ namespace OnlineShop
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}"); 
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.IgnoreRoute("{*botdetect}",
       new { botdetect = @"(.*)BotDetectCaptcha\.ashx" }); //ngăn chặn người dùng truy cập vào botdectcaptcha
 
             routes.MapRoute(
-           name: "Product Index",
-           url: "san-pham",
-           defaults: new { controller = "Product", action = "Index" },
-           namespaces: new[] { "OnlineShop.Controllers" }
-       );
+               name: "Product Index",
+               url: "san-pham",
+               defaults: new { controller = "Product", action = "Index" },
+               namespaces: new[] { "OnlineShop.Controllers" }
+           );
 
             routes.MapRoute(
                name: "Product Category",
@@ -61,11 +61,11 @@ namespace OnlineShop
       );
 
             routes.MapRoute(
-       name: "News",
-       url: "tin-tuc",
-       defaults: new { controller = "Content", action = "Index", id = UrlParameter.Optional },
-       namespaces: new[] { "OnlineShop.Controllers" }
-   );
+           name: "News",
+           url: "tin-tuc",
+           defaults: new { controller = "Content", action = "Index", id = UrlParameter.Optional },
+           namespaces: new[] { "OnlineShop.Controllers" }
+       );
             routes.MapRoute(
           name: "Cart",
           url: "gio-hang",

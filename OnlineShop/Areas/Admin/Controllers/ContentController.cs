@@ -12,9 +12,12 @@ namespace OnlineShop.Areas.Admin.Controllers
     public class ContentController : BaseController
     {
         // GET: Admin/Content
-        public ActionResult Index()
+        public ActionResult Index(string searchString, int page = 1, int pageSize = 10)
         {
-            return View();
+            var dao = new ContentDao();
+            var model = dao.ListAllPaging(searchString, page, pageSize);
+            ViewBag.SearchString = searchString;
+            return View(model);
         }
 
         //Truyền view bag để hiển thị category drop down list
@@ -42,10 +45,20 @@ namespace OnlineShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                var currentCulture = Session[CommonConstants.CurrentCulture];
+                model.Language = currentCulture.ToString();
+                var id = new ContentDao().Insert(model);
+                if (id > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ModelState.AddModelError("", StaticResources.Resources.InsertCategoryFailed);
+                }
             }
             SetViewBag(); //để chưa kết nối được thì view bag vẫn còn
-            return View();
+            return View(model);
         }
 
         [HttpPost] 

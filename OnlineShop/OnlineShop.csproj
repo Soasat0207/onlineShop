@@ -1465,6 +1465,7 @@
     <Content Include="Assets\Client\font\fontawesome-webfont.woff2" />
     <Content Include="Assets\Client\font\FontAwesome.otf" />
     <Content Include="Areas\Admin\Views\Shared\401.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
